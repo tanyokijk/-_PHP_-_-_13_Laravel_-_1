@@ -1,0 +1,32 @@
+﻿@model News
+
+<h2>Add New</h2>
+
+<form asp-action="AddNew" method="post">
+    <div class="form-group">
+        <label asp-for="Summary">Header:</label>
+        <input asp-for="Summary" class="form-control" onkeyup="validateInput('summary', 50)" maxlength="50" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="ShortDescription">Short Text:</label>
+        <input asp-for="ShortDescription" class="form-control" onkeyup="validateInput('shortDescription', 150)" maxlength="150" required />
+    </div>
+    <div class="form-group">
+        <label asp-for="FullText">Article:</label>
+        <textarea asp-for="FullText" class="form-control" onkeyup="validateInput('fullText', 5000)" maxlength="5000" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+
+<script>
+    function validateInput(inputId, maxLength) {
+        var input = document.getElementById(inputId);
+        if (input.value.length > maxLength) {
+            input.style.borderColor = "red";
+        } else {
+            input.style.borderColor = "";
+        }
+    }
+</script>
+
+

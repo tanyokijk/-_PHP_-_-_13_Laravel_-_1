@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    @model List<News>
+}
+
+<div class="text-center">
+    <h2>Welcome to Our News Website!</h2>
+    <a asp-controller="News" asp-action="AddNew" class="btn btn-primary">Add New</a>
+
+    @foreach (var newsItem in Model)
+    {
+        <div>
+            <div><strong>@newsItem.Summary</strong></div>
+            <div style="font-size: smaller;">@newsItem.ShortDescription</div>
+        </div>
+        <hr style="margin: 10px 0;">
+    }
+</div>
